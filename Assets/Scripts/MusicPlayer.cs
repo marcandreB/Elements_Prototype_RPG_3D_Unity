@@ -22,7 +22,7 @@ public class MusicPlayer : MonoBehaviour {
 
 	private void OnTriggerEnter(Collider other){
 		ZoneMusic zone = other.GetComponent<ZoneMusic> ();
-		Debug.Log("Trigger enter");
+		//Debug.Log("Trigger enter");
 		if (zone != null) {
 			zoneCount++;
 
@@ -38,7 +38,7 @@ public class MusicPlayer : MonoBehaviour {
 
 	private void OnTriggerExit(Collider other){
 		ZoneMusic zone = other.GetComponent<ZoneMusic> ();
-		Debug.Log("Trigger exit");
+		//Debug.Log("Trigger exit");
 		if (zone != null) {
 			zoneCount--;
 			if (zoneCount == 0) {
