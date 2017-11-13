@@ -11,12 +11,17 @@ public class Golem : MonoBehaviour {
     public bool isDead = false;
     public float pushBackSpeed;
 
-	void Start()
+    public float colourChangeDelay = 0.7f;
+    public float currentDelay = 0f;
+    public bool colourChangeCollision = false;
+    public float hitDamages;
+    void Start()
 	{
 		player = GameObject.FindGameObjectWithTag("Player");
 		playerTransform = player.transform;
 		animator = GetComponent<Animator> ();
         health = 100;
+
 	}
 
     void Update()
@@ -29,8 +34,9 @@ public class Golem : MonoBehaviour {
         {
             die();
         }
+        colorChangeOnHit();
 
-	}
+    }
 
 
 
@@ -68,7 +74,8 @@ public class Golem : MonoBehaviour {
         animator.SetTrigger("GetHitted");
         Debug.Log("Hitted");
         Debug.Log(transform.position);
-            
+        colourChangeCollision = true;
+        currentDelay = Time.time + colourChangeDelay;
 
     }
 
@@ -79,6 +86,36 @@ public class Golem : MonoBehaviour {
         Debug.Log("Golem death");
         isDead = true;
 
+    }
+
+    public void Knockback(float amount)
+    {
+        //A modifier, marche pas tres bien
+        //GetComponent<Rigidbody>().AddForce(Vector3.back * amount, ForceMode.VelocityChange);
+    }
+
+    public void colorChangeOnHit()
+    {
+        if (colourChangeCollision)
+        {
+            transform.GetComponent<Renderer>().material.color = Color.red;
+            if (Time.time > currentDelay)
+            {
+                transform.GetComponent<Renderer>().material.color = Color.white;
+                colourChangeCollision = false;
+                Debug.Log("Retour au blanc");
+            }
+            Debug.Log("Changer couleur");
+        }
+    }
+
+    public void OnTriggerEnter(Collider other)
+    {
+        if (other.gameObject.tag == "Player"){
+            if (animator.GetCurrentAnimatorStateInfo(0).IsName("Attack")){
+                player.GetComponent<PlayerController>().getHitted(hitDamages);
+            }
+        }
     }
 
 

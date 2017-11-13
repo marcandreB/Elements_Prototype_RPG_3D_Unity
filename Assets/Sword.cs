@@ -31,10 +31,11 @@ public class Sword : MonoBehaviour {
             {
                 collider.GetComponent<Golem>().TakeDamages(DamageByHit);
                 Debug.Log(collider + " Took damages for " + DamageByHit + " and health remaining = " + collider.GetComponent<Golem>().health);
-                GetComponent<Rigidbody>().AddForce(transform.position * 5);
+                collider.GetComponent<Golem>().Knockback(5);
 
             }
         }
+        Debug.Log("Collider");
     }
 
     private void OnCollisionEnter(Collision collision)

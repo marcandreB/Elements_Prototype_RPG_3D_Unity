@@ -13,6 +13,7 @@ public class PlayerController : MonoBehaviour {
 	Transform cameraT;
 	private int attackAnimation = 1;
 	private Vector3 jump;
+    public float Health = 100;
 
 	//Attributs publics
 	public float walkSpeed = 2;
@@ -121,5 +122,21 @@ public class PlayerController : MonoBehaviour {
 			coolingdown = false;
 		}
 	}
+
+    public void getHitted(float damages)
+    {
+        Health -= damages;
+        if (Health <= 0)
+            die();
+    }
+
+    void die()
+    {
+        //TODO
+        //Animation
+        //Son
+        //GUI game over
+
+    }
 }
 
