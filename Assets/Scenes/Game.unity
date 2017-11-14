@@ -772,6 +772,16 @@ Prefab:
       propertyPath: attackSound
       value: 
       objectReference: {fileID: 8300000, guid: 71adb4d6298f7425191c6fb053bd2590, type: 3}
+    - target: {fileID: 114217869078036680, guid: 7f479646b44b4a941bc2703fd0b38af6,
+        type: 2}
+      propertyPath: moveSound
+      value: 
+      objectReference: {fileID: 8300000, guid: 1f5adaba3dd23451ab4617d7905d9930, type: 3}
+    - target: {fileID: 82043165920217736, guid: 7f479646b44b4a941bc2703fd0b38af6,
+        type: 2}
+      propertyPath: m_Volume
+      value: 0.28
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 54378846298270806, guid: 7f479646b44b4a941bc2703fd0b38af6, type: 2}
   m_ParentPrefab: {fileID: 100100000, guid: 7f479646b44b4a941bc2703fd0b38af6, type: 2}
@@ -1294,11 +1304,11 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 0}
+  m_audioClip: {fileID: 8300000, guid: 1f5adaba3dd23451ab4617d7905d9930, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 1
+  m_Volume: 0.24
   m_Pitch: 1
-  Loop: 0
+  Loop: 1
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0

@@ -20,6 +20,7 @@ public class Golem : MonoBehaviour {
     public AudioClip deathSound;
     public AudioClip dammageSound;
     public AudioClip attackSound;
+    public AudioClip moveSound;
     private AudioSource audioSource;
 
     private GameObject music;
@@ -62,7 +63,6 @@ public class Golem : MonoBehaviour {
 			if (direction.magnitude > 2) {
 				animator.SetBool ("RunBool", true);
 				this.transform.Translate (0, 0, 0.05f);
-
 			}
 
 		} else {
@@ -102,6 +102,7 @@ public class Golem : MonoBehaviour {
         //Debug.Log("Golem death");
         isDead = true;
         Destroy(music);
+        audioSource.mute = true;
     }
 
     public void Knockback(float amount)
@@ -137,7 +138,4 @@ public class Golem : MonoBehaviour {
     public void AttackSoundStart(){
         audioSource.PlayOneShot(attackSound);
     }
-
-
-
 }
