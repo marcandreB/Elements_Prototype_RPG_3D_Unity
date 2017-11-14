@@ -19,6 +19,7 @@ public class Golem : MonoBehaviour {
 
     public AudioClip deathSound;
     public AudioClip dammageSound;
+    public AudioClip attackSound;
     private AudioSource audioSource;
 
     private GameObject music;
@@ -132,6 +133,11 @@ public class Golem : MonoBehaviour {
             }
         }
     }
+
+    public void AttackSoundStart(){
+        audioSource.PlayOneShot(attackSound);
+    }
+
 
 
 }

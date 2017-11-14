@@ -757,6 +757,21 @@ Prefab:
       propertyPath: hitDamages
       value: 5
       objectReference: {fileID: 0}
+    - target: {fileID: 114217869078036680, guid: 7f479646b44b4a941bc2703fd0b38af6,
+        type: 2}
+      propertyPath: deathSound
+      value: 
+      objectReference: {fileID: 8300000, guid: 243a351bbbe254397baaa5ae833b0bd6, type: 3}
+    - target: {fileID: 114217869078036680, guid: 7f479646b44b4a941bc2703fd0b38af6,
+        type: 2}
+      propertyPath: dammageSound
+      value: 
+      objectReference: {fileID: 8300000, guid: 4ea11e761c88d4bb586e5a181c8ed60b, type: 3}
+    - target: {fileID: 114217869078036680, guid: 7f479646b44b4a941bc2703fd0b38af6,
+        type: 2}
+      propertyPath: attackSound
+      value: 
+      objectReference: {fileID: 8300000, guid: 71adb4d6298f7425191c6fb053bd2590, type: 3}
     m_RemovedComponents:
     - {fileID: 54378846298270806, guid: 7f479646b44b4a941bc2703fd0b38af6, type: 2}
   m_ParentPrefab: {fileID: 100100000, guid: 7f479646b44b4a941bc2703fd0b38af6, type: 2}
@@ -1270,6 +1285,86 @@ SkinnedMeshRenderer:
     m_Center: {x: 0.054495394, y: 1.7264168, z: 0.17183614}
     m_Extent: {x: 1.7720437, y: 2.0780108, z: 1.3289983}
   m_DirtyAABB: 0
+--- !u!82 &215206557
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 215206551}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 0}
+  m_PlayOnAwake: 1
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 2
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    - serializedVersion: 2
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 2
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 0
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 2
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 0
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 2
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 0
 --- !u!1 &238177753
 GameObject:
   m_ObjectHideFlags: 0
@@ -8151,7 +8246,6 @@ GameObject:
   - component: {fileID: 1869216807}
   - component: {fileID: 1869216806}
   - component: {fileID: 1869216811}
-  - component: {fileID: 1869216812}
   - component: {fileID: 1869216813}
   m_Layer: 0
   m_Name: Character
@@ -8180,6 +8274,11 @@ MonoBehaviour:
   speedSmoothTime: 0.1
   JumpForce: 2.5
   ToTarget: 0
+  runSound: {fileID: 8300000, guid: f4b9346037b9548b3bdef24dbd751cfc, type: 3}
+  walkSound: {fileID: 8300000, guid: 592c26e245c454ea49046f44bac58b6c, type: 3}
+  attackSound: {fileID: 8300000, guid: 3ba5abb1ee0ef47dea0a204f9bd36230, type: 3}
+  dammageSound: {fileID: 8300000, guid: b51b88e4c385d483a818b5d6704707cb, type: 3}
+  deathSound: {fileID: 8300000, guid: 6243be86814c84e02bade1529cf05df8, type: 3}
   coolingdown: 0
 --- !u!136 &1869216807
 CapsuleCollider:
@@ -8264,19 +8363,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   idleMusicSource: {fileID: 1867669621}
---- !u!114 &1869216812
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1869216805}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 420943a7207804c078f119364414d0c7, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  runSound: {fileID: 8300000, guid: f4b9346037b9548b3bdef24dbd751cfc, type: 3}
-  walkSound: {fileID: 8300000, guid: 592c26e245c454ea49046f44bac58b6c, type: 3}
 --- !u!82 &1869216813
 AudioSource:
   m_ObjectHideFlags: 0
