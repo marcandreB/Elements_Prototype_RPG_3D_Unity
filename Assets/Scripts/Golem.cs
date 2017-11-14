@@ -18,6 +18,7 @@ public class Golem : MonoBehaviour {
     public float hitDamages;
 
     public AudioClip deathSound;
+    public AudioClip dammageSound;
     private AudioSource audioSource;
 
     private GameObject music;
@@ -80,12 +81,14 @@ public class Golem : MonoBehaviour {
         this.health -= damages;
         if (health <= 0) {
             die();
+        }else{
+            animator.SetTrigger("GetHitted");
+            Debug.Log("Hitted");
+            Debug.Log(transform.position);
+            colourChangeCollision = true;
+            currentDelay = Time.time + colourChangeDelay;
+            audioSource.PlayOneShot(dammageSound);
         }
-        animator.SetTrigger("GetHitted");
-        Debug.Log("Hitted");
-        Debug.Log(transform.position);
-        colourChangeCollision = true;
-        currentDelay = Time.time + colourChangeDelay;
 
     }
 
