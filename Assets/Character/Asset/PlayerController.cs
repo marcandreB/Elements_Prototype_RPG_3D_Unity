@@ -3,6 +3,7 @@ using System.Collections;
 
 public class PlayerController : MonoBehaviour {
 
+
 	//Variables et attributs prives
 	public bool isGrounded;
 	float turnSmoothVelocity;
@@ -24,17 +25,25 @@ public class PlayerController : MonoBehaviour {
 	public static float distanceFromTarget;
 	public float ToTarget;
 
+	public AudioClip runSound;
+	public AudioClip walkSound;
+	public AudioClip attackSound;
+	public AudioClip dammageSound;
+	public AudioClip deathSound;
+	private AudioSource audioSource;
+
 	float cooldownCounter = 1;
 	public bool coolingdown = false;
 
 
 	void Start () {
-		
+
 		//Preparation des variables
 		animator = GetComponent<Animator> ();
 		cameraT = Camera.main.transform;
 		rb = GetComponent<Rigidbody>();
 		jump = new Vector3 (0.0f, 2.0f, 0.0f);
+		audioSource = GetComponent<AudioSource>();
 	}
 
 	void Update () {
@@ -46,7 +55,7 @@ public class PlayerController : MonoBehaviour {
 			distanceFromTarget = ToTarget;
 		}
 
-			
+
 		//Preparation
 		Vector2 input = new Vector2 (Input.GetAxisRaw ("Horizontal"), Input.GetAxisRaw ("Vertical"));
 		Vector2 inputDir = input.normalized;
@@ -96,12 +105,11 @@ public class PlayerController : MonoBehaviour {
 		if (attackAnimation == 1 && isGrounded) {
 			animator.SetTrigger ("Attack");
 			attackAnimation = 2;
-			return;
 		} else {
 			animator.SetTrigger ("Attack2");
 			attackAnimation = 1;
-			return;
 		}
+		audioSource.PlayOneShot(attackSound);
 	}
 
 	//On determine si on est au sol pour empecher les jumps multiples
@@ -126,17 +134,29 @@ public class PlayerController : MonoBehaviour {
     public void getHitted(float damages)
     {
         Health -= damages;
-        if (Health <= 0)
+        if (Health <= 0){
             die();
+        }else{
+        	audioSource.PlayOneShot(dammageSound);
+        }
     }
 
     void die()
     {
         //TODO
+        audioSource.PlayOneShot(deathSound);
         //Animation
         //Son
         //GUI game over
 
     }
+
+    void RunStart(){
+		audioSource.PlayOneShot(runSound);
+	}
+
+	void WalkStart(){
+		audioSource.PlayOneShot(walkSound);
+	}
 }
 
