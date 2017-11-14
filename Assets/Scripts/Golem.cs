@@ -15,6 +15,9 @@ public class Golem : MonoBehaviour {
     public float currentDelay = 0f;
     public bool colourChangeCollision = false;
     public float hitDamages;
+
+    private GameObject music;
+
     void Start()
 	{
 		player = GameObject.FindGameObjectWithTag("Player");
@@ -22,11 +25,13 @@ public class Golem : MonoBehaviour {
 		animator = GetComponent<Animator> ();
         health = 100;
 
+		music = transform.Find("BossMusicZone").gameObject;
+        //music = GetComponent<ZoneMusic>().transform.gameObject;
 	}
 
     void Update()
     {
-        if (health > 0) { 
+        if (health > 0) {
         chasePlayer();
         attackPlayer();
         }
@@ -45,7 +50,7 @@ public class Golem : MonoBehaviour {
 			Vector3 direction = playerTransform.position - this.transform.position;
 
 			this.transform.rotation = Quaternion.Slerp (this.transform.rotation,
-				Quaternion.LookRotation (direction), 0.1f); 
+				Quaternion.LookRotation (direction), 0.1f);
 
 			if (direction.magnitude > 2) {
 				animator.SetBool ("RunBool", true);
@@ -61,7 +66,7 @@ public class Golem : MonoBehaviour {
 	void attackPlayer(){
 		if (Vector3.Distance(playerTransform.position, this.transform.position) < 6)
 		{
-			animator.SetTrigger ("AttackTrigger");  
+			animator.SetTrigger ("AttackTrigger");
 		}
 	}
 
@@ -83,9 +88,9 @@ public class Golem : MonoBehaviour {
     {
         if (isDead == false)
             animator.SetTrigger("Die");
-        Debug.Log("Golem death");
+        //Debug.Log("Golem death");
         isDead = true;
-
+        Destroy(music);
     }
 
     public void Knockback(float amount)
