@@ -12,7 +12,7 @@ public class Golem : MonoBehaviour {
     public bool isDead = false;
     public float pushBackSpeed;
 
-    public float colourChangeDelay = 0.7f;
+    public float colourChangeDelay = 0.4f;
     public float currentDelay = 0f;
     public bool colourChangeCollision = false;
     public float hitDamages;
@@ -22,6 +22,7 @@ public class Golem : MonoBehaviour {
     public AudioClip attackSound;
     public AudioClip moveSound;
     private AudioSource audioSource;
+	private GameObject book;
 
     private GameObject music;
 
@@ -34,6 +35,7 @@ public class Golem : MonoBehaviour {
 
 		music = transform.Find("BossMusicZone").gameObject;
         audioSource = GetComponent<AudioSource>();
+		book = GameObject.Find ("Book");
         //music = GetComponent<ZoneMusic>().transform.gameObject;
 	}
 
@@ -46,6 +48,7 @@ public class Golem : MonoBehaviour {
         else
         {
             die();
+			transform.Translate(0, -.005f, 0);
         }
         colorChangeOnHit();
 
@@ -84,7 +87,6 @@ public class Golem : MonoBehaviour {
             die();
         }else{
             animator.SetTrigger("GetHitted");
-            Debug.Log("Hitted");
             Debug.Log(transform.position);
             colourChangeCollision = true;
             currentDelay = Time.time + colourChangeDelay;
@@ -98,11 +100,13 @@ public class Golem : MonoBehaviour {
         if (isDead == false){
             animator.SetTrigger("Die");
             audioSource.PlayOneShot(deathSound);
+			book.GetComponent<BookEvent>().popAnotherEnemy();
         }
         //Debug.Log("Golem death");
         isDead = true;
         Destroy(music);
         audioSource.mute = true;
+
     }
 
     public void Knockback(float amount)
@@ -120,9 +124,7 @@ public class Golem : MonoBehaviour {
             {
                 transform.GetComponent<Renderer>().material.color = Color.white;
                 colourChangeCollision = false;
-                Debug.Log("Retour au blanc");
             }
-            Debug.Log("Changer couleur");
         }
     }
 

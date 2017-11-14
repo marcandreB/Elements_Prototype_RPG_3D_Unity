@@ -47,6 +47,7 @@ public class MusicPlayer : MonoBehaviour {
 		}
 	}
 
+	//TODO : Il semblerait que on tente dacceder a laudio qui est deleted
 	private void OnTriggerExit(Collider other){
 		if(isPlaying){
 			ZoneMusic zone = other.GetComponent<ZoneMusic> ();
@@ -54,9 +55,11 @@ public class MusicPlayer : MonoBehaviour {
 			if(zones.Count == 0){
 				Debug.Log("Change music");
 				isPlaying = false;
+				/*
 				idleMusicSource.mute = false;
 				zoneMusicSource.Stop ();
 				zoneMusicSource = null;
+				*/
 			}
 		}
 	}

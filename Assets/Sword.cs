@@ -35,11 +35,6 @@ public class Sword : MonoBehaviour {
 
             }
         }
-        Debug.Log("Collider");
     }
-
-    private void OnCollisionEnter(Collision collision)
-    {
-        Debug.Log("Touch");
-    }
+		
 }
