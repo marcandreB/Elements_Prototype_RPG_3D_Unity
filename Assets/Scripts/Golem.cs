@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+[RequireComponent(typeof(AudioSource))]
 public class Golem : MonoBehaviour {
 
 	public Transform playerTransform;
@@ -16,6 +17,9 @@ public class Golem : MonoBehaviour {
     public bool colourChangeCollision = false;
     public float hitDamages;
 
+    public AudioClip deathSound;
+    private AudioSource audioSource;
+
     private GameObject music;
 
     void Start()
@@ -26,6 +30,7 @@ public class Golem : MonoBehaviour {
         health = 100;
 
 		music = transform.Find("BossMusicZone").gameObject;
+        audioSource = GetComponent<AudioSource>();
         //music = GetComponent<ZoneMusic>().transform.gameObject;
 	}
 
@@ -86,8 +91,10 @@ public class Golem : MonoBehaviour {
 
     void die()
     {
-        if (isDead == false)
+        if (isDead == false){
             animator.SetTrigger("Die");
+            audioSource.PlayOneShot(deathSound);
+        }
         //Debug.Log("Golem death");
         isDead = true;
         Destroy(music);
