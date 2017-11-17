@@ -39,7 +39,7 @@ public class BookEvent : MonoBehaviour {
 		}
 
 		//On delete la barriere lorsqu'elle est dans le sol
-		if (Barrier.transform.position.y < -4.2)
+		if (Barrier != null && Barrier.transform.position.y < -4.2)
 			Destroy (Barrier);
 		
 
