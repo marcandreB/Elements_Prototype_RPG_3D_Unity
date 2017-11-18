@@ -17,8 +17,15 @@ public class GUI_Jeu : MonoBehaviour
     }
 
 	void Update(){
-		if (Input.GetKeyDown ("I"))
-			InventoryOn ();
+		if (Input.GetKeyDown("i"))
+			InventoryCanvas.enabled = !(InventoryCanvas.enabled); 
+		if (Input.GetKeyDown("o"))
+			OptionsCanvas.enabled = !(OptionsCanvas.enabled); 
+		if (Input.GetKeyDown("m"))
+			Application.LoadLevel(0);
+		if (Input.GetKeyDown("escape"))
+			Application.Quit();
+		
 	}
 
     public void OptionsOn()
