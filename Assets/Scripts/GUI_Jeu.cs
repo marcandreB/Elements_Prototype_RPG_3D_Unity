@@ -25,7 +25,6 @@ public class GUI_Jeu : MonoBehaviour
 			Application.LoadLevel(0);
 		if (Input.GetKeyDown("escape"))
 			Application.Quit();
-		
 	}
 
     public void OptionsOn()
