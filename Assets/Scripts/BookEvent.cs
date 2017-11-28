@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class BookEvent : MonoBehaviour {
+public class BookEvent : MonoBehaviour, IInteractable {
 
 	public float Distance;
 	private Sprite MySprite;
@@ -39,8 +39,8 @@ public class BookEvent : MonoBehaviour {
 		}
 
 		//On delete la barriere lorsqu'elle est dans le sol
-		if (Barrier != null && Barrier.transform.position.y < -4.2)
-			Destroy (Barrier);
+		/*if (Barrier != null && Barrier.transform.position.y < -4.2)
+			Destroy (Barrier);*/
 		
 
 	}
@@ -64,7 +64,7 @@ public class BookEvent : MonoBehaviour {
 			numberEnemyRemaining = 0;
 		}
 		else if(numberEnemyRemaining == 0) {
-			Barrier.GetComponent<Animator> ().SetTrigger ("Down");
+			//Barrier.GetComponent<Animator> ().SetTrigger ("Down");
 			GameObject[] enemies = GameObject.FindGameObjectsWithTag ("Enemy");
 			foreach (GameObject enemy in enemies){
 				Destroy (enemy);
@@ -73,4 +73,25 @@ public class BookEvent : MonoBehaviour {
 	}
 
 		
+	#region IInteractable implementation
+	public void Interacted ()
+	{
+		if (numberEnemyRemaining == 0) {
+
+			//TODO pick up
+
+			Barrier.GetComponent<Animator> ().SetTrigger ("Down");
+			Destroy (Barrier, 5);
+		}
+	}
+
+	public void HoverBegin ()
+	{
+	}
+
+	public void HoverEnd ()
+	{
+	}
+
+	#endregion
 }

@@ -7,11 +7,18 @@ public class InputManager : MonoBehaviour {
 	public float maxHitDistance=100;
 	private Transform cameraTransfrom;
 	private IInteractable currentObject;
+	public SpellController spellController;
 
 	// Use this for initialization
 	void Start () {
 		cameraTransfrom = Camera.main.transform;
 		currentObject = null;
+	}
+
+	void Update(){
+		if(Input.GetButton("earth")){
+			spellController.CastEarthSpell ();
+		}
 	}
 
 	// Update is called once per frame
