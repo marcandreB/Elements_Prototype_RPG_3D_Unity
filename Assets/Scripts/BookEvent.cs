@@ -15,6 +15,8 @@ public class BookEvent : MonoBehaviour, IInteractable {
 	private GameObject Barrier;
 	private int numberEnemyRemaining = 3;
 	private bool eventStarted = false;
+	[SerializeField]
+	private SpellController spellController;
 
 	// Use this for initialization
 	void Start () {
@@ -77,16 +79,18 @@ public class BookEvent : MonoBehaviour, IInteractable {
 	public void Interacted ()
 	{
 		if (numberEnemyRemaining == 0) {
-
-			//TODO pick up
-
+			spellController.IsEarthSpellUnlocked = true;
+			//TODO music
 			Barrier.GetComponent<Animator> ().SetTrigger ("Down");
 			Destroy (Barrier, 5);
+			this.gameObject.SetActive (false);
+			Destroy (this.gameObject,10);
 		}
 	}
 
 	public void HoverBegin ()
 	{
+		Debug.Log ("Hover begin");
 	}
 
 	public void HoverEnd ()

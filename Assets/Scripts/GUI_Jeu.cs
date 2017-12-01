@@ -13,7 +13,7 @@ public class GUI_Jeu : MonoBehaviour
     private void Awake()
     {
         OptionsCanvas.enabled = false; 
-		InventoryCanvas.enabled = false; 
+		InventoryCanvas.enabled = false;
     }
 
 	void Update(){

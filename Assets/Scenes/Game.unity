@@ -4990,6 +4990,7 @@ GameObject:
   - component: {fileID: 603249225}
   - component: {fileID: 603249224}
   - component: {fileID: 603249223}
+  - component: {fileID: 603249226}
   m_Layer: 5
   m_Name: btnTerre
   m_TagString: Untagged
@@ -5069,7 +5070,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0.51564884, g: 0.52336323, b: 0.5232045, a: 0.87079114}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -5090,6 +5091,18 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 603249221}
+--- !u!114 &603249226
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 603249221}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4708cd144e41849d881e42636f65ffcd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  spellController: {fileID: 1869216812}
 --- !u!43 &652086743
 Mesh:
   m_ObjectHideFlags: 0
@@ -5443,6 +5456,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Distance: 0
   Prefab: {fileID: 4826971371625886, guid: 6b4ee6740bafa614ab8a6f58113650ef, type: 2}
+  spellController: {fileID: 1869216812}
 --- !u!1 &658028918
 GameObject:
   m_ObjectHideFlags: 0
@@ -19491,7 +19505,7 @@ RectTransform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1709174561}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -405.6944, y: -237.9816, z: 0}
+  m_LocalPosition: {x: -405.69434, y: -237.98157, z: 0}
   m_LocalScale: {x: 0.8263042, y: 1, z: 1}
   m_Children:
   - {fileID: 1642836004}
@@ -19500,7 +19514,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0.010324485}
   m_AnchorMax: {x: 0.162, y: 0.07167552}
-  m_AnchoredPosition: {x: -11.9999695, y: -3.5000305}
+  m_AnchoredPosition: {x: -11.999939, y: -3.5}
   m_SizeDelta: {x: -1, y: 1}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1709174563

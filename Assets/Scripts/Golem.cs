@@ -26,6 +26,8 @@ public class Golem : MonoBehaviour {
 
     private GameObject music;
 
+	private float freezeTime;
+
     void Start()
 	{
 		player = GameObject.FindGameObjectWithTag("Player");
@@ -36,14 +38,18 @@ public class Golem : MonoBehaviour {
 		music = transform.Find("BossMusicZone").gameObject;
         audioSource = GetComponent<AudioSource>();
 		book = GameObject.Find ("Book");
+		freezeTime = 0;
         //music = GetComponent<ZoneMusic>().transform.gameObject;
 	}
 
     void Update()
     {
+		freezeTime = Mathf.Max (0, freezeTime - Time.deltaTime);
         if (health > 0) {
-        chasePlayer();
-        attackPlayer();
+			if (freezeTime <= 0) {
+				chasePlayer ();
+				attackPlayer ();
+			}
         }
         else
         {
@@ -140,4 +146,8 @@ public class Golem : MonoBehaviour {
     public void AttackSoundStart(){
         audioSource.PlayOneShot(attackSound);
     }
+
+	public void Freeze(float time){
+		freezeTime += time;
+	}
 }

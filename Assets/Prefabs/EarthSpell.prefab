@@ -23,6 +23,7 @@ GameObject:
   - component: {fileID: 23358141341063682}
   - component: {fileID: 54151393123375884}
   - component: {fileID: 136856918704392018}
+  - component: {fileID: 114434179226318634}
   m_Layer: 0
   m_Name: EarthSpell
   m_TagString: Untagged
@@ -99,6 +100,18 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &114434179226318634
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1775906954247242}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bfa5b086df2a741b791c1fc244a429ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  freezeTime: 4
 --- !u!136 &136856918704392018
 CapsuleCollider:
   m_ObjectHideFlags: 1
@@ -106,7 +119,7 @@ CapsuleCollider:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1775906954247242}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   m_Radius: 0.45240784
   m_Height: 1.077179
