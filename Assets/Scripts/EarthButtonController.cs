@@ -18,7 +18,12 @@ public class EarthButtonController : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 		if (spellController.IsEarthSpellUnlocked) {
-			button.image.color = Color.white;
+			if (spellController.remainingCooldown > 0) {
+				float percentageCooldown = (spellController.cooldown - spellController.remainingCooldown) / spellController.cooldown;
+				button.image.color = Color.Lerp (Color.red, Color.white, percentageCooldown);	
+			} else {
+				button.image.color = Color.white;
+			}
 		}
 	}
 }

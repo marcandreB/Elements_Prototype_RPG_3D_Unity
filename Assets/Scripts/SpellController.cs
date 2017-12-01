@@ -10,7 +10,7 @@ public class SpellController : MonoBehaviour {
 	public float spellVelocity = 1;
 	public float spellLifetime = 5;
 	public float cooldown = 5;
-	private float remainingCooldown;
+	public float remainingCooldown;
 
 	public void Start(){
 		remainingCooldown = 0;
