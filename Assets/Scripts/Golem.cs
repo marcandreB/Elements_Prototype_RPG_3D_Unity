@@ -3,12 +3,14 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [RequireComponent(typeof(AudioSource))]
+[RequireComponent(typeof(HealthbarController))]
 public class Golem : MonoBehaviour {
 
 	public Transform playerTransform;
 	public GameObject player;
 	private Animator animator;
     public float health;
+	public float maxHealth;
     public bool isDead = false;
     public float pushBackSpeed;
 
@@ -23,6 +25,8 @@ public class Golem : MonoBehaviour {
     public AudioClip moveSound;
     private AudioSource audioSource;
 	private GameObject book;
+
+	private HealthbarController healthbar;
 
     private GameObject music;
 
@@ -39,7 +43,9 @@ public class Golem : MonoBehaviour {
         audioSource = GetComponent<AudioSource>();
 		book = GameObject.Find ("Book");
 		freezeTime = 0;
+		healthbar = GetComponent<HealthbarController> ();
         //music = GetComponent<ZoneMusic>().transform.gameObject;
+		health = Mathf.Min(health, maxHealth);
 	}
 
     void Update()
@@ -88,7 +94,8 @@ public class Golem : MonoBehaviour {
 
     public void TakeDamages(float damages)
     {
-        this.health -= damages;
+		health = Mathf.Max (0, health - damages);
+		healthbar.SetHealthPercentage (health / maxHealth);
         if (health <= 0) {
             die();
         }else{

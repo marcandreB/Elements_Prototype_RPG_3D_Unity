@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
+[RequireComponent(typeof(HealthbarController))]
 public class PlayerController : MonoBehaviour {
 
 
@@ -15,6 +16,7 @@ public class PlayerController : MonoBehaviour {
 	private int attackAnimation = 1;
 	private Vector3 jump;
     public float Health = 100;
+	public float maxHealth = 100;
 
 	//Attributs publics
 	public float walkSpeed = 2;
@@ -32,6 +34,8 @@ public class PlayerController : MonoBehaviour {
 	public AudioClip deathSound;
 	private AudioSource audioSource;
 
+	private HealthbarController healthbar;
+
 	float cooldownCounter = 1;
 	public bool coolingdown = false;
 
@@ -44,6 +48,8 @@ public class PlayerController : MonoBehaviour {
 		rb = GetComponent<Rigidbody>();
 		jump = new Vector3 (0.0f, 2.0f, 0.0f);
 		audioSource = GetComponent<AudioSource>();
+		healthbar = GetComponent<HealthbarController> ();
+		Health = Mathf.Min (Health, maxHealth);
 	}
 
 	void Update () {
@@ -133,7 +139,8 @@ public class PlayerController : MonoBehaviour {
 
     public void getHitted(float damages)
     {
-        Health -= damages;
+		Health = Mathf.Max (0, Health - damages);
+		healthbar.SetHealthPercentage (Health / maxHealth);
         if (Health <= 0){
             die();
         }else{
