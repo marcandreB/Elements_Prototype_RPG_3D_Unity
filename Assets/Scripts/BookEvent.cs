@@ -13,6 +13,7 @@ public class BookEvent : MonoBehaviour, IInteractable {
 	public Transform Prefab;
 	private GameObject player;
 	private GameObject Barrier;
+	private GameObject bookQuest; 
 	private int numberEnemyRemaining = 3;
 	private bool eventStarted = false;
 	[SerializeField]
@@ -25,6 +26,7 @@ public class BookEvent : MonoBehaviour, IInteractable {
 		spawn3 = GameObject.Find ("SpawnLocation2");
 		player = GameObject.FindGameObjectWithTag ("Player");
 		Barrier = GameObject.Find ("Barrier");
+		bookQuest = GameObject.Find ("BookQuestCursor");
 	}
 
 	// Update is called once per frame
@@ -80,6 +82,8 @@ public class BookEvent : MonoBehaviour, IInteractable {
 	{
 		if (numberEnemyRemaining == 0) {
 			spellController.IsEarthSpellUnlocked = true;
+			// modifier la quête 
+			bookQuest.SetActive(false); 
 			//TODO music
 			Barrier.GetComponent<Animator> ().SetTrigger ("Down");
 			Destroy (Barrier, 5);
