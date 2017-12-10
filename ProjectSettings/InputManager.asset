@@ -198,11 +198,11 @@ InputManager:
     axis: 0
     joyNum: 0
   - serializedVersion: 3
-    m_Name: Fire2
+    m_Name: fire
     descriptiveName: 
     descriptiveNegativeName: 
     negativeButton: 
-    positiveButton: joystick button 1
+    positiveButton: 2
     altNegativeButton: 
     altPositiveButton: 
     gravity: 1000
@@ -218,7 +218,7 @@ InputManager:
     descriptiveName: Cast earth spell
     descriptiveNegativeName: 
     negativeButton: 
-    positiveButton: e
+    positiveButton: 1
     altNegativeButton: 
     altPositiveButton: 
     gravity: 1000

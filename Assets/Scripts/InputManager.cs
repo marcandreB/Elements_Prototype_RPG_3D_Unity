@@ -18,6 +18,8 @@ public class InputManager : MonoBehaviour {
 	void Update(){
 		if(Input.GetButton("earth")){
 			spellController.CastEarthSpell ();
+		}else if(Input.GetButton("fire")){
+			spellController.CastFireSpell ();
 		}
 	}
 

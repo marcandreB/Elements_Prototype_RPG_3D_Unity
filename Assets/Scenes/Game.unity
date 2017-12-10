@@ -1033,6 +1033,7 @@ GameObject:
   - component: {fileID: 144940655}
   - component: {fileID: 144940654}
   - component: {fileID: 144940653}
+  - component: {fileID: 144940656}
   m_Layer: 5
   m_Name: btnFeu
   m_TagString: Untagged
@@ -1112,7 +1113,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0.52, g: 0.52, b: 0.52, a: 1}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -1133,6 +1134,18 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 144940651}
+--- !u!114 &144940656
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 144940651}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e2bfc15fcd0f843759bf6776566f2200, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  spellController: {fileID: 1869216812}
 --- !u!1 &146702945
 GameObject:
   m_ObjectHideFlags: 0
@@ -21350,7 +21363,7 @@ Mesh:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  m_Name: pb_Mesh-424724
+  m_Name: pb_Mesh13224
   serializedVersion: 8
   m_SubMeshes:
   - serializedVersion: 2
@@ -38593,7 +38606,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   IsEarthSpellUnlocked: 1
+  IsFireSpellUnlocked: 0
   earthSpellPrefab: {fileID: 1775906954247242, guid: 024ee1258ebfd4ff1b4f035e6eb30c47,
+    type: 2}
+  fireSpellPrefab: {fileID: 1876118418221318, guid: b2664ceabb52e41e884aa9e2dccfb632,
     type: 2}
   caster: {fileID: 1973940693}
   spellVelocity: 200
@@ -40590,7 +40606,7 @@ MeshRenderer:
   m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
   m_StitchLightmapSeams: 0
-  m_SelectedEditorRenderState: 2
+  m_SelectedEditorRenderState: 3
   m_MinimumChartSize: 4
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89

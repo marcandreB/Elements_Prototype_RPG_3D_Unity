@@ -5,7 +5,9 @@ using UnityEngine;
 public class SpellController : MonoBehaviour {
 
 	public bool IsEarthSpellUnlocked = false;
+	public bool IsFireSpellUnlocked = false;
 	public GameObject earthSpellPrefab;
+	public GameObject fireSpellPrefab;
 	public Transform caster;
 	public float spellVelocity = 1;
 	public float spellLifetime = 5;
@@ -23,6 +25,12 @@ public class SpellController : MonoBehaviour {
 	public void CastEarthSpell(){
 		if (IsEarthSpellUnlocked) {
 			Cast (earthSpellPrefab);
+		}
+	}
+
+	public void CastFireSpell(){
+		if (IsFireSpellUnlocked) {
+			Cast (fireSpellPrefab);
 		}
 	}
 
