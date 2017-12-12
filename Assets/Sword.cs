@@ -9,12 +9,14 @@ public class Sword : MonoBehaviour {
     public float DamageByHit;
     public GameObject script;
     private Animator animator;
+    public GameObject Boss;
 
     // Use this for initialization
     void Start () {
         player = GameObject.FindGameObjectWithTag("Player").transform;
         animator = player.GetComponent<Animator>();
-	}
+        Boss = GameObject.FindGameObjectWithTag("Boss");
+    }
 	
 	// Update is called once per frame
 	void Update () {
@@ -32,6 +34,13 @@ public class Sword : MonoBehaviour {
                 collider.GetComponent<Golem>().TakeDamages(DamageByHit);
                 Debug.Log(collider + " Took damages for " + DamageByHit + " and health remaining = " + collider.GetComponent<Golem>().health);
                 collider.GetComponent<Golem>().Knockback(5);
+
+            }
+
+            if (collider.gameObject.tag == "Boss")
+            {
+                Boss.GetComponent<Boss>().TakeDamages(DamageByHit);
+                Debug.Log(collider + " Took damages for " + DamageByHit + " and health remaining = " + collider.GetComponent<Boss>().Health);
 
             }
         }
