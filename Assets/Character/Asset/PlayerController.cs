@@ -48,7 +48,7 @@ public class PlayerController : MonoBehaviour {
 		rb = GetComponent<Rigidbody>();
 		jump = new Vector3 (0.0f, 2.0f, 0.0f);
 		audioSource = GetComponent<AudioSource>();
-		healthbar = GetComponent<HealthbarController> ();
+		healthbar = GetComponentInChildren<HealthbarController> ();
 		Health = Mathf.Min (Health, maxHealth);
 	}
 

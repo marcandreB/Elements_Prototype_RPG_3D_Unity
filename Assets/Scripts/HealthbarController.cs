@@ -6,15 +6,17 @@ using UnityEngine.UI;
 public class HealthbarController : MonoBehaviour {
 
 	private Transform healthBar;
+	private Vector3 originalScale;
 
 	// Use this for initialization
 	void Start () {
 		healthBar = GetComponentInChildren<Image> ().transform;
+		originalScale = healthBar.localScale;
 	}
 	
 	public void SetHealthPercentage(float percentage){
-		Vector3 scale = healthBar.localScale;
-		scale.x = percentage;
+		Vector3 scale = originalScale;
+		scale.x *= percentage;
 		healthBar.localScale = scale;
 	}
 }

@@ -26,7 +26,7 @@ public class Boss : MonoBehaviour {
     void Start () {
         //State = State.BeforeCombat;
         animator = GetComponent<Animator>();
-		healthbar = GetComponent<HealthbarController>();
+		healthbar = GetComponentInChildren<HealthbarController>();
 	}
 	
 	// Update is called once per frame

@@ -44,7 +44,7 @@ public class Golem : MonoBehaviour {
         audioSource = GetComponent<AudioSource>();
 		book = GameObject.Find ("Book");
 		freezeTime = 0;
-		healthbar = GetComponent<HealthbarController> ();
+		healthbar = GetComponentInChildren<HealthbarController> ();
         //music = GetComponent<ZoneMusic>().transform.gameObject;
 		health = Mathf.Min(health, maxHealth);
 	}
@@ -100,7 +100,9 @@ public class Golem : MonoBehaviour {
     public void TakeDamages(float damages)
     {
 		health = Mathf.Max (0, health - damages);
-		//healthbar.SetHealthPercentage (health / maxHealth);
+		if (maxHealth != 0) {
+			healthbar.SetHealthPercentage (health / maxHealth);
+		}
         if (health <= 0) {
             die();
         }else{
