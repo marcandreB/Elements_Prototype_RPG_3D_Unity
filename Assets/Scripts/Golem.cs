@@ -67,6 +67,7 @@ public class Golem : MonoBehaviour {
 			transform.Translate(0, -.005f, 0);
         }
         colorChangeOnHit();
+        this.GetComponent<Rigidbody>().velocity = new Vector3(0, 0, 0);
 
     }
 

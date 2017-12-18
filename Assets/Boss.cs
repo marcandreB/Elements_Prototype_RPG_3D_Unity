@@ -71,7 +71,7 @@ public class Boss : MonoBehaviour {
             if (direction.magnitude > 2)
             {
                 animator.SetBool("RunBool", true);
-                this.transform.Translate(0, 0, 0.05f);
+                //this.transform.Translate(0, 0, 0.05f);
             }
 
         }
