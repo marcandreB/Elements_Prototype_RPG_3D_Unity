@@ -25,6 +25,7 @@ public class Golem : MonoBehaviour {
     public AudioClip moveSound;
     private AudioSource audioSource;
 	private GameObject book;
+    private float deathDestroy = 5;
 
 	private HealthbarController healthbar;
 
@@ -59,6 +60,9 @@ public class Golem : MonoBehaviour {
         }
         else
         {
+            deathDestroy -= Time.deltaTime;
+            if (deathDestroy <= 0)
+                Destroy(gameObject);
             die();
 			transform.Translate(0, -.005f, 0);
         }
@@ -95,7 +99,7 @@ public class Golem : MonoBehaviour {
     public void TakeDamages(float damages)
     {
 		health = Mathf.Max (0, health - damages);
-		healthbar.SetHealthPercentage (health / maxHealth);
+		//healthbar.SetHealthPercentage (health / maxHealth);
         if (health <= 0) {
             die();
         }else{
@@ -113,7 +117,8 @@ public class Golem : MonoBehaviour {
         if (isDead == false){
             animator.SetTrigger("Die");
             audioSource.PlayOneShot(deathSound);
-			book.GetComponent<BookEvent>().popAnotherEnemy();
+			if ( GameObject.Find("Book").GetComponent<BookEvent>().eventStarted)
+                book.GetComponent<BookEvent>().popAnotherEnemy();
         }
         //Debug.Log("Golem death");
         isDead = true;

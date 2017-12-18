@@ -15,7 +15,7 @@ public class BookEvent : MonoBehaviour, IInteractable {
 	private GameObject Barrier;
 	private GameObject bookQuest; 
 	private int numberEnemyRemaining = 3;
-	private bool eventStarted = false;
+	public bool eventStarted = false;
 	[SerializeField]
 	private SpellController spellController;
 
@@ -73,6 +73,7 @@ public class BookEvent : MonoBehaviour, IInteractable {
 			foreach (GameObject enemy in enemies){
 				Destroy (enemy);
 			}
+            eventStarted = false;
 		}
 	}
 

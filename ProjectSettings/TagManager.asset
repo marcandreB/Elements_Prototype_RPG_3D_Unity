@@ -8,6 +8,7 @@ TagManager:
   - BookQuest
   - Jesus
   - Boss
+  - Fire
   layers:
   - Default
   - TransparentFX
@@ -17,8 +18,8 @@ TagManager:
   - UI
   - 
   - 
-  - 
-  - 
+  - Boss
+  - Fireball
   - 
   - 
   - 
