@@ -1,0 +1,27 @@
+﻿<Properties StartupItem="Assembly-CSharp.csproj" RefactoringSettings.EnableRefactorings="True">
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="Unity.Instance.Unity Editor" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Boss.cs">
+    <Files>
+      <File FileName="Assets/Scripts/BookEvent.cs" Line="55" Column="1" />
+      <File FileName="Assets/Boss.cs" Line="29" Column="37" />
+      <File FileName="Assets/Scripts/CubeInteractor.cs" Line="1" Column="1" />
+      <File FileName="Assets/Scripts/InputManager.cs" Line="1" Column="1" />
+      <File FileName="Assets/Scripts/IInteractable.cs" Line="1" Column="1" />
+      <File FileName="Assets/Scripts/Golem.cs" Line="47" Column="37" />
+      <File FileName="Assets/Character/Asset/PlayerController.cs" Line="51" Column="37" />
+      <File FileName="Assets/GateSoundbox.cs" Line="1" Column="1" />
+      <File FileName="Assets/Scripts/SpellController.cs" Line="1" Column="1" />
+      <File FileName="Assets/Scripts/GUI_Jeu.cs" Line="1" Column="1" />
+      <File FileName="Assets/Scripts/EarthButtonController.cs" Line="1" Column="1" />
+      <File FileName="Assets/Scripts/HealthbarController.cs" Line="23" Column="1" />
+      <File FileName="Assets/Scripts/FireSpellController.cs" Line="1" Column="1" />
+      <File FileName="Assets/Scripts/FireSpellButtonController.cs" Line="28" Column="2" />
+    </Files>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore>
+      <Breakpoint file="/Users/antoine/workspace/IFT-2103/Assets/Scripts/HealthbarController.cs" line="18" column="1" />
+    </BreakpointStore>
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+</Properties>
